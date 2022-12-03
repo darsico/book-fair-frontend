@@ -1,0 +1,88 @@
+@import url('./reset.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Inter, sans-serif;
+  }
+  .gradient-animator {
+    background: linear-gradient(42deg, #d1d1d1, #6e6e6e);
+    background-size: 100% 100%;
+
+    -webkit-animation: AnimationName 5s ease infinite;
+    -moz-animation: AnimationName 5s ease infinite;
+    animation: AnimationName 5s ease infinite;
+  }
+
+  @-webkit-keyframes AnimationName {
+    0% {
+      background-position: 0% 29%;
+    }
+    50% {
+      background-position: 100% 72%;
+    }
+    100% {
+      background-position: 0% 29%;
+    }
+  }
+  @-moz-keyframes AnimationName {
+    0% {
+      background-position: 0% 29%;
+    }
+    50% {
+      background-position: 100% 72%;
+    }
+    100% {
+      background-position: 0% 29%;
+    }
+  }
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 29%;
+    }
+    50% {
+      background-position: 100% 72%;
+    }
+    100% {
+      background-position: 0% 29%;
+    }
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply min-h-screen w-full py-10;
+  }
+  .page-title {
+    @apply font-special text-center text-2xl;
+  }
+  .main-content {
+    @apply flex flex-col gap-5 w-[70vw] md:w-80 mx-auto;
+  }
+  .page-subtitle {
+    @apply text-center;
+  }
+  .sub-container {
+    @apply flex flex-col gap-4 h-fit;
+  }
+  .main-button {
+    @apply px-4 py-2 bg-black text-white hover:bg-gray-800 text-center;
+  }
+  .secondary-button {
+    @apply text-center px-4 py-2 bg-white border border-solid  hover:bg-gray-400;
+  }
+  .form-field {
+    @apply w-full flex flex-col;
+  }
+  .form-input {
+    @apply bg-gray-100 p-2 border border-gray-300;
+  }
+  .form-label {
+    @apply p-1 text-sm font-normal text-xs text-gray-700;
+  }
+  .form-ctn {
+    @apply flex flex-col gap-4;
+  }
+}
