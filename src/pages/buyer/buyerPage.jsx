@@ -7,14 +7,13 @@ import SpinnerSection from '../../components/Loader/SpinnerSection';
 
 
 const BuyerPage = () => {
-
+ const user = JSON.parse(localStorage.getItem('user'));
  const { buyerId } = useParams();
  const { isLoading, data: userData } = useQuery(['buyer', buyerId], () => getBuyerData(buyerId));
 
  if (isLoading) return <SpinnerSection />;
 
- const { buyer } = userData || {};
- const orders = buyer?.orders || [];
+ const { buyer, orders } = userData || {};
 
  return (
   <section className="page-container">

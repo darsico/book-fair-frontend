@@ -11,7 +11,7 @@ export const ProtectedRoute = () => {
 
   const isAuth = localStorage.getItem('token');
 
-  return !isAuth || isAuth === null || isAuth === undefined || isAuth === ''
+  return !isAuth
     ? <Navigate to={pathToNavigate} />
     : <Outlet />;
 };

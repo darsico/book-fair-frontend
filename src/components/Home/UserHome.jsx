@@ -35,7 +35,11 @@ const UserHome = ({ data, type, orders }) => {
    )}
 
    {isBuyer && (
-    <Orders orders={orders} wide={false} type="buyer" />
+
+    <div>
+     <h4 className="text-xl font-bold text-gray-700">Orders</h4>
+     <Orders orders={orders} wide={false} type="buyer" />
+    </div>
    )}
   </div>
 

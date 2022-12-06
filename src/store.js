@@ -23,21 +23,6 @@ export const useProductStore = create((set) => ({
   isOpenCart: false,
 }));
 
-// const authInitialState = {
-//   isUserLoggedIn: false,
-//   token: null,
-//   role: null,
-// }
-
-// export const useAuthStore = create(
-//   persist((set) => ({
-//     ...authInitialState,
-//     setRole: (role) => set({ role }),
-//     logUser: (isUserLoggedIn) => set({ isUserLoggedIn }),
-//     setToken: (token) => set({ token }),
-//   }))
-// );
-
 export const useCartStore = create(
   persist(
     (set, get) => ({

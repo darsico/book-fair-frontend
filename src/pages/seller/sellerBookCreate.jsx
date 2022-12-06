@@ -45,9 +45,6 @@ const SellerBookCreate = () => {
   return (
     <section className="page-container">
       <div className="flex flex-col gap-5 mx-auto">
-        <div className=" text-3xl font-special">
-          <h6>| Book Store</h6>
-        </div>
         <h2 className=" text-xl">
           <span className="text-2xl">📚</span> Create a new book:
         </h2>

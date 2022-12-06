@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userLogin } from '../../api/authApi';
 import PostButton from '../Buttons/PostButton.jsx';
 import Error from '../Error/Error';
@@ -22,7 +22,7 @@ const UserLogin = ({ type }) => {
    if (isSeller) {
     const { token, seller } = data;
     const { _id } = seller;
-    const user = { userId: _id, role: 'seller' };
+    const user = { userId: _id, role: 'seller', store: seller.store };
     localStorage.setItem('user', JSON.stringify(user));
 
     if (token) navigate(`/seller/${_id}`);
@@ -65,6 +65,10 @@ const UserLogin = ({ type }) => {
      <FormField label="Confirm Password" name={'confirmPassword'} type={'password'} register={register} errors={errors} rules={{ required: true }} />
      <PostButton isLoading={isLoading} buttonTitle="Login" />
      <Error />
+     <div className='py-4 gap-4 flex flex-col'>
+      <p className="text-center text-gray-500">Don't have an account?</p>
+      <Link to={`/${type}/new`} className="secondary-button w-full hover:text-white">Sign up</Link>
+     </div>
     </form>
    </div>
   </div>

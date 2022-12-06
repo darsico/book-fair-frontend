@@ -17,23 +17,23 @@ const SellerAllBooks = () => {
  if (isError) return <h1>{error.message}</h1>
 
  return (
-  <section className="page-container">
-   <div className="flex flex-col gap-5   mx-auto">
-    <div className=" text-3xl font-special">
-     <h6>| Book Store</h6>
-    </div>
-    <Link to={`/seller/${sellerId}/books/new`}>
-     <div className="flex items-center gap-2">
-      <span className="text-2xl">📖</span>
-      <h3 className="text-sm underline"> Create new book</h3> <AiOutlinePlus />
+  <>
+
+   <section className="page-container">
+    <div className="flex flex-col gap-5   mx-auto">
+     <Link to={`/seller/${sellerId}/books/new`} className="w-fit">
+      <div className="inline-flex items-center gap-2 ">
+       <span className="text-2xl">📖</span>
+       <h3 className="text-sm underline inline"> Create new book</h3> <AiOutlinePlus />
+      </div>
+     </Link>
+     <h3 className="text-lg">Check out your products</h3>
+     <div className="sub-container">
+      <Table headerData={tableHeader} bodyData={sellerBooks?.books || []} type="book" />
      </div>
-    </Link>
-    <h3 className="text-lg">Check out your products</h3>
-    <div className="sub-container">
-     <Table headerData={tableHeader} bodyData={sellerBooks?.books || []} type="book" />
     </div>
-   </div>
-  </section>
+   </section>
+  </>
  );
 };
 

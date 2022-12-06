@@ -20,13 +20,13 @@ const Home = () => {
   return (
     <section className="page-container">
       <div className="py-16">
-        <h2 className="text-4xl font-special font-bold text-center pb-6">Store Name</h2>
-        <Search setParams={setParams} params={params} />
+        <h2 className="text-4xl font-special font-bold text-center pb-6">Welcome to BookFair</h2>
+        <Search setParams={setParams} params={params} placeholder="Search any book you want" />
       </div>
       <div className="grid  grid-cols-2  md:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-10">
         {
           books && filteredBooks
-            .map(book => <Book key={book._id} data={book} />)
+            .map(book => <Book key={book._id} data={book} card />)
         }
       </div>
     </section>

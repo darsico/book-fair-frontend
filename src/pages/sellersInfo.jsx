@@ -9,11 +9,11 @@ import SpinnerSection from '../components/Loader/SpinnerSection';
 
 const SellersInfo = () => {
  const { sellerId } = useParams();
- const { data, isLoading, error } = useQuery(['seller', sellerId], () => getSellerBooksPublic(sellerId));
+ const { data, isLoading, isError } = useQuery(['seller', sellerId], () => getSellerBooksPublic(sellerId));
  const [params, setParams] = useSearchParams();
 
  if (isLoading) return <SpinnerSection />;
- if (error || !data) return <h1>Something went wrong</h1>;
+ if (isError) return <h1>Something went wrong</h1>;
 
  const searchTerms = params.get('title') || '';
 

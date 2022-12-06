@@ -19,12 +19,18 @@ const UserSignUp = ({ type }) => {
     const { token, newSeller } = data;
     const { _id } = newSeller;
     localStorage.setItem('token', token);
+    const user = { userId: _id, role: 'seller', store: newSeller.store };
+    localStorage.setItem('user', JSON.stringify(user));
+
     if (token) navigate(`/seller/${_id}`);
    }
    if (isBuyer) {
     const { token, newBuyer } = data;
     const { _id } = newBuyer;
     localStorage.setItem('token', token);
+    const user = { userId: _id, role: 'buyer' };
+    localStorage.setItem('user', JSON.stringify(user));
+
     if (token) navigate(`/buyer/${_id}`);
    }
   },

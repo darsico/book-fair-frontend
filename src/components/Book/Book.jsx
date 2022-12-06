@@ -1,6 +1,7 @@
 import skeletonImage from '../../assets/image-skeleton.png';
 import AddToCartButton from '../Buttons/AddToCart';
-const Book = ({ data, mockup = false }) => {
+import BookCard from './BookCard.jsx'
+const Book = ({ data, mockup = false, card }) => {
  const { title, author, description, bookImage, price, stock, image, seller } = data || {};
 
  const renderImage = (bookImage) => {
@@ -19,6 +20,21 @@ const Book = ({ data, mockup = false }) => {
   }
   return <div className="object-cover w-full h-full gradient-animator"></div>;
  };
+
+ if (card) return <BookCard renderImage={renderImage} book={data} />
+
+ const getButton = () => {
+  if (mockup) {
+   return <button className="secondary-button w-full hover:text-white">Add to Cart</button>
+  }
+  if (stock === 0) {
+   return <button disabled className=" w-full py-3 text-gray-500 text-center px-4  bg-white border border-solid  hover:cursor-not-allowed">
+    Out of stock
+   </button>
+  }
+  return <AddToCartButton data={data} />
+ };
+
  return (
   <div className="w-full h-full">
    <figure className="h-64 lg:h-96 w-full">{renderImage(bookImage || image)}</figure>
@@ -36,17 +52,9 @@ const Book = ({ data, mockup = false }) => {
    <p className="text-xs lg:text-sm">
     <span className="text-gray-600 ">Stock:</span> {stock === 0 ? 'Out of stock' : stock}
    </p>
-   <div className='mt-4'>
-    {mockup ? (
-     <button className="secondary-button">Agregar al Carrito</button>
-    ) : stock === 0 ? (
-     <button disabled className=" w-full py-3 text-gray-500 text-center px-4  bg-white border border-solid  hover:cursor-not-allowed">
-      Out of stock
-     </button>
-    ) : (
-     <AddToCartButton data={data} />
-    )}
-   </div>
+   {!card && <div className='mt-4'>
+    {getButton()}
+   </div>}
   </div>
  );
 };

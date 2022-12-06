@@ -21,9 +21,6 @@ const SellerPage = () => {
    <section className="page-container">
     <div className="flex flex-col md:flex-row md:justify-between gap-5 mx-auto">
      <div>
-      <div className=" text-3xl font-special pb-10">
-       <h6>| {store}</h6>
-      </div>
       <h2 className=" text-xl">
        Welcome to your store, <span className="text-2xl font-semibold">{name}</span>
       </h2>

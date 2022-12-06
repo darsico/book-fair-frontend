@@ -10,8 +10,8 @@ const CartIcon = () => {
  };
  return (
   <div className="relative">
-   <CgShoppingCart className="text-xl hover:cursor-pointer" onClick={handleMiniCartClick} />
-   {cart && numberOfItems > 0 && <span className="bg-gray-900 w-4 h-4 flex justify-center items-center rounded-full absolute top-0 -right-1 text-white text-xs">{numberOfItems}</span>}
+   <CgShoppingCart className="text-2xl hover:cursor-pointer" onClick={handleMiniCartClick} />
+   {cart && numberOfItems > 0 && <span className="bg-gray-900 w-4 h-4 flex justify-center items-center rounded-full absolute top-0 -right-1 text-white text-xs scale-90">{numberOfItems}</span>}
   </div>
  );
 };

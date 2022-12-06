@@ -55,7 +55,7 @@ export const loginSeller = async (sellerData) => {
 
 export const getSellerBooksPublic = async (sellerId) => {
  const { data } = await sellerApi.get(`/sellers/${sellerId}/books`);
- console.log(data)
+
  return data;
 }
 
@@ -74,7 +74,6 @@ export const getSellerBooks = async (sellerId) => {
 }
 
 export const createBook = async (sellerId, bookData) => {
- console.log(bookData);
  const token = localStorage.getItem('token');
  try {
   const { data } = await sellerApi.post(`/seller/${sellerId}/books/new`, bookData, {
@@ -84,7 +83,6 @@ export const createBook = async (sellerId, bookData) => {
   });
   return data;
  } catch (error) {
-  console.log(error);
   console.log({
    message: error.response.data.message || "Error when creating book",
   });
