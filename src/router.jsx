@@ -2,8 +2,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/home';
 import Layout from './pages/layout';
-import { BuyerCart, BuyerInitial, BuyerLogin, BuyerOrders, BuyerPage, BuyerSignUp } from './pages/buyer';
+import { BuyerCart, BuyerInitial, BuyerLogin, BuyerPage, BuyerSignUp } from './pages/buyer';
 import { SellerBookCreate, SellerAllBooks, SellerInitial, SellerLogin, SellerOrders, SellerPage, SellerSignUp } from './pages/seller';
+import SellersInfo from './pages/sellersInfo';
+import Sellers from './pages/sellers';
 
 const Router = () => {
  return (
@@ -26,12 +28,11 @@ const Router = () => {
      <Route path="/buyer/login" element={<BuyerLogin />} />
      <Route path="/buyer/:buyerId" element={<BuyerPage />} />
      <Route path="/buyer/:buyerId/cart" element={<BuyerCart />} />
-     <Route path="/buyer/:buyerId/orders" element={<BuyerOrders />} />
+     {/* <Route path="/buyer/:buyerId/orders" element={<BuyerOrders />} /> */}
      {/*
+    <Route path="sellers/:sellerId/books" element={<SellersBooks />} /> */}
      <Route path="/sellers" element={<Sellers />} />
      <Route path="sellers/:sellerId" element={<SellersInfo />} />
-     <Route path="sellers/:sellerId/books" element={<SellersBooks />} /> */}
-
      <Route index element={<Home />} />
     </Route>
    </Routes>

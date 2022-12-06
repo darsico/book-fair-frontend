@@ -3,18 +3,14 @@ import { Link, useParams } from 'react-router-dom';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { getSellerById } from '../../api/sellerApi';
 import { useQuery } from 'react-query';
-import Spinner from '../../components/Loader/Spinner';
+import SpinnerSection from '../../components/Loader/SpinnerSection';
+
 const SellerPage = () => {
  const { sellerId } = useParams();
 
  const { data, isLoading, isError, error, isFetched } = useQuery(['seller', sellerId], () => getSellerById(sellerId));
 
- if (isLoading)
-  return (
-   <section className="h-[50vh] w-full flex justify-center items-center">
-    <Spinner textColor="text-gray-700" sizeTwClass="h-20 w-20 opacity-60" />
-   </section>
-  );
+ if (isLoading) return <SpinnerSection />
 
  if (isError || error) return <h1>Something went wrong {error.message}</h1>;
 

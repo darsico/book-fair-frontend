@@ -1,6 +1,4 @@
-import { useLocation } from 'react-router-dom';
 import UserLogin from '../../components/Login/UserLogin';
-
 
 const SellerLogin = () => {
   return (

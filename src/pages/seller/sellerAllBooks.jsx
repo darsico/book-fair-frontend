@@ -8,6 +8,7 @@ import SpinnerSection from '../../components/Loader/SpinnerSection';
 const SellerAllBooks = () => {
 
  const { sellerId } = useParams();
+
  const { data: sellerBooks, isLoading, isError, error } = useQuery(['sellerBooks', sellerId], () => getSellerBooks(sellerId));
 
  const tableHeader = ['Image', 'Title', 'Author', 'Description', 'Price', 'Stock'];
@@ -29,7 +30,7 @@ const SellerAllBooks = () => {
     </Link>
     <h3 className="text-lg">Check out your products</h3>
     <div className="sub-container">
-     <Table headerData={tableHeader} bodyData={sellerBooks.books || []} type="book" />
+     <Table headerData={tableHeader} bodyData={sellerBooks?.books || []} type="book" />
     </div>
    </div>
   </section>

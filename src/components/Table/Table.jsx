@@ -1,7 +1,8 @@
 const Table = ({ headerData, bodyData, type }) => {
   const displayTableBody = (data, type) => {
     if (type === 'book') {
-      return data.map((book) => {
+      const reversedData = data.reverse();
+      return reversedData.map((book) => {
         return (
           <ul key={book._id} className=" border-solid  border-b-[1px] border-gray-300 grid grid- grid-cols-[1fr_1fr_1fr_minmax(180px,_1fr)_1fr_1fr]  w-full items-center justify-center py-4">
             <li className="px-2 min-w-0 ">
@@ -9,7 +10,6 @@ const Table = ({ headerData, bodyData, type }) => {
                 <img src={book.image} alt={book.title} className="object-contain h-full w-full" />
               </figure>
             </li>
-
             <li className=" px-6 min-w-0 "><span className=" text-gray-600 text-base">{book.title}</span></li>
             <li className=" px-6 min-w-0">{book.author}</li>
             <li className=" px-6 min-w-0">{book.description}</li>

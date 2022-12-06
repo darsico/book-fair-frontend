@@ -53,6 +53,12 @@ export const loginSeller = async (sellerData) => {
  }
 }
 
+export const getSellerBooksPublic = async (sellerId) => {
+ const { data } = await sellerApi.get(`/sellers/${sellerId}/books`);
+ console.log(data)
+ return data;
+}
+
 export const getSellerBooks = async (sellerId) => {
  const token = localStorage.getItem('token');
  try {
@@ -84,6 +90,20 @@ export const createBook = async (sellerId, bookData) => {
   });
   document.getElementById('error').innerHTML = error.response.data.message;
 
+ }
+}
+
+export const getSellerData = async (sellerId) => {
+ const token = localStorage.getItem('token');
+ try {
+  const { data } = await sellerApi.get(`/seller/${sellerId}/`, {
+   headers: {
+    "x-access-token": `${token}`
+   }
+  });
+  return data
+ } catch (error) {
+  console.log(error);
  }
 }
 

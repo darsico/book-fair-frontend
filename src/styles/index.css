@@ -6,6 +6,7 @@
 @layer base {
   html {
     font-family: Inter, sans-serif;
+    box-sizing: border-box;
   }
   .gradient-animator {
     background: linear-gradient(42deg, #d1d1d1, #6e6e6e);
@@ -14,6 +15,32 @@
     -webkit-animation: AnimationName 5s ease infinite;
     -moz-animation: AnimationName 5s ease infinite;
     animation: AnimationName 5s ease infinite;
+  }
+  .order-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: masonry;
+  }
+
+  @layer utilities {
+    @variants responsive {
+      .masonry {
+        column-gap: 1.5em;
+        column-count: 1;
+      }
+      .masonry-sm {
+        column-gap: 1.5em;
+        column-count: 2;
+      }
+      .masonry-md {
+        column-gap: 1.5em;
+        column-count: 3;
+      }
+      .break-inside {
+        break-inside: avoid;
+        width: 100%;
+      }
+    }
   }
 
   @-webkit-keyframes AnimationName {
@@ -53,7 +80,7 @@
 
 @layer components {
   .page-container {
-    @apply min-h-screen w-full py-10;
+    @apply w-full py-10 h-full;
   }
   .page-title {
     @apply font-special text-center text-2xl;

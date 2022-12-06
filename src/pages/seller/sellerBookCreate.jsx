@@ -1,12 +1,13 @@
 import { useProductStore } from '../../store';
 import { useNavigate, useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
-import Book from '../../components/Book';
+import Book from '../../components/Book/Book';
 import { useMutation } from 'react-query';
 import { createBook } from '../../api/sellerApi';
 import PostButton from '../../components/Buttons/PostButton';
 import Error from '../../components/Error/Error';
 import FormField from '../../components/Form/FormField';
+import BookPreview from '../../components/Book/BookPreview';
 
 const SellerBookCreate = () => {
   const { setTitle, setAuthor, setDescription, setBookImage, setPrice, setStock } = useProductStore((state) => state);
@@ -51,7 +52,7 @@ const SellerBookCreate = () => {
           <span className="text-2xl">📚</span> Create a new book:
         </h2>
         <section className='grid grid-cols-1 md:grid-cols-2 md:gap-6  lg:gap-24'>
-          <Book buttonPlaceHolder />
+          <BookPreview />
           <div className="sub-container -order-1">
             <form className="form-ctn" onSubmit={handleSubmit(onSubmit)}>
               <h3 className="text-gray-700 text-xl pb-2 underline">Create Here</h3>

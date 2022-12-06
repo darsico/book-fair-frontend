@@ -3,6 +3,7 @@ import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { userLogin } from '../../api/authApi';
 import PostButton from '../Buttons/PostButton.jsx';
+import Error from '../Error/Error';
 import FormField from '../Form/FormField.jsx';
 
 const UserLogin = ({ type }) => {
@@ -13,7 +14,6 @@ const UserLogin = ({ type }) => {
  } = useForm();
 
  const navigate = useNavigate();
-
  const isSeller = type === 'seller';
  const isBuyer = type === 'buyer';
 
@@ -22,13 +22,17 @@ const UserLogin = ({ type }) => {
    if (isSeller) {
     const { token, seller } = data;
     const { _id } = seller;
-    localStorage.setItem('token', token);
+    const user = { userId: _id, role: 'seller' };
+    localStorage.setItem('user', JSON.stringify(user));
+
     if (token) navigate(`/seller/${_id}`);
    }
    if (isBuyer) {
     const { token, buyer } = data;
     const { _id } = buyer;
-    localStorage.setItem('token', token);
+    const user = { userId: _id, role: 'buyer' };
+    localStorage.setItem('user', JSON.stringify(user));
+
     if (token) navigate(`/buyer/${_id}`);
    }
   },
@@ -60,6 +64,7 @@ const UserLogin = ({ type }) => {
      <FormField label="Password" name={'password'} type={'password'} register={register} errors={errors} rules={{ required: true }} />
      <FormField label="Confirm Password" name={'confirmPassword'} type={'password'} register={register} errors={errors} rules={{ required: true }} />
      <PostButton isLoading={isLoading} buttonTitle="Login" />
+     <Error />
     </form>
    </div>
   </div>
