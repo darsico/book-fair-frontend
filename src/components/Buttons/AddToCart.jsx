@@ -34,7 +34,7 @@ const AddToCartButton = ({ data }) => {
   isOpen: isSameSellerModal,
   modalTitle: "You can't order from different sellers",
   modalText: "I'm sorry, we detected that you are trying to order from different sellers, however you can order from one seller at a time.",
-  pathToRedirect: `/seller/${getLatestSellerInCart()}`,
+  pathToRedirect: `/sellers/${getLatestSellerInCart()}`,
   buttonText: 'Go to your seller books'
  };
 
