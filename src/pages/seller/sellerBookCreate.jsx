@@ -58,7 +58,7 @@ const SellerBookCreate = () => {
                 type={'text'}
                 register={register}
                 errors={errors}
-                rules={{ required: true }}
+                rules={{ required: true, message: 'Title is required' }}
                 handleOnChange={setTitle}
               />
               <FormField
@@ -67,14 +67,20 @@ const SellerBookCreate = () => {
                 type={'text'}
                 register={register}
                 errors={errors}
-                rules={{ required: true }}
+                rules={{
+                  required: true,
+                  message: 'Author is required'
+                }}
                 handleOnChange={setAuthor} />
               <FormField
                 label='Description'
                 type={'textarea'}
                 register={register}
                 name={'description'}
-                rules={{ required: true }}
+                rules={{
+                  required: true,
+                  message: 'Description is required'
+                }}
                 handleOnChange={setDescription}
               />
               <div className="grid grid-cols-2 gap-5 flex-col-reverse">
@@ -84,7 +90,7 @@ const SellerBookCreate = () => {
                   name="price"
                   register={register}
                   errors={errors}
-                  rules={{ required: true, pattern: /^\d+$/, message: 'Price must be a number' }}
+                  rules={{ required: true, pattern: /^\d+$/, message: 'Price is required ' }}
                   handleOnChange={(value) => setPrice(value)}
                 />
                 <FormField
@@ -93,7 +99,7 @@ const SellerBookCreate = () => {
                   name="stock"
                   register={register}
                   errors={errors}
-                  rules={{ required: true, pattern: /^\d+$/, message: 'Stock must be a number' }}
+                  rules={{ required: true, pattern: /^\d+$/, message: 'Stock is required' }}
                   handleOnChange={setStock}
                 />
               </div>
@@ -103,7 +109,7 @@ const SellerBookCreate = () => {
                 name='image'
                 register={register}
                 errors={errors}
-                rules={{ required: true }}
+                rules={{ required: true, message: 'Image is required' }}
                 handleOnChange={setBookImage}
               />
               <PostButton isLoading={isLoading} buttonTitle="Create Book" />
