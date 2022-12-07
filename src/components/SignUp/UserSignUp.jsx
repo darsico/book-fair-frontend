@@ -6,6 +6,8 @@ import { userRegister } from "../../api/authApi";
 import PostButton from "../Buttons/PostButton.jsx";
 import Error from "../Error/Error.jsx";
 import { useState } from "react";
+import { AiOutlineEye } from 'react-icons/ai'
+import { AiOutlineEyeInvisible } from 'react-icons/ai'
 
 const UserSignUp = ({ type }) => {
  const [showPassword, setShowPassword] = useState(false);
@@ -103,7 +105,7 @@ const UserSignUp = ({ type }) => {
        rules={{
         required: true,
         message: 'Confirm password is required',
-        validate: (value) => value === password || 'The passwords do not match'
+
        }}
       />
       {isSeller && <div className="pt-5 flex flex-col gap-4">
