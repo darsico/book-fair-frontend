@@ -56,7 +56,7 @@ const UserLogin = ({ type }) => {
   <div className="main-content">
    <h2 className="page-title"> Login</h2>
    <h3 className="page-subtitle">
-    <span className="font-special">Dear {isSeller ? "Seller" : "Buyer"},</span> It's a moment to start a new journey...
+    <span className="font-special">Dear {isSeller ? 'Seller' : 'Buyer'},</span> It's a moment to start a new journey...
    </h3>
    <div className="sub-container">
     <form action="" className="form-ctn" onSubmit={handleSubmit(onSubmit)}>
@@ -65,14 +65,15 @@ const UserLogin = ({ type }) => {
      <FormField label="Confirm Password" name={'confirmPassword'} type={'password'} register={register} errors={errors} rules={{ required: true }} />
      <PostButton isLoading={isLoading} buttonTitle="Login" />
      <Error />
-     <div className='py-4 gap-4 flex flex-col'>
+     <div className="py-4 gap-4 flex flex-col">
       <p className="text-center text-gray-500">Don't have an account?</p>
-      <Link to={`/${type}/new`} className="secondary-button w-full hover:text-white">Sign up</Link>
+      <Link to={`/${type}/new`} className="secondary-button w-full hover:text-white">
+       Sign up
+      </Link>
      </div>
     </form>
    </div>
   </div>
-
  );
 };
 

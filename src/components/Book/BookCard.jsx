@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { descriptionFormat } from "../../utils/descriptionFormat";
 
 const BookCard = ({ book, renderImage }) => {
  const { title, author, description, price, stock, image, seller } = book;
+ const [showDescription, setShowDescription] = useState(false);
  const linkTitle = title.replace(/ /g, '+').toLowerCase();
 
  return (
@@ -18,7 +21,7 @@ const BookCard = ({ book, renderImage }) => {
      </div>
     </div>
     <h4 className="font-medium text-xl lg:text-2xl pb-2">{title}</h4>
-    <p className="text-sm lg:text-base text-gray-600 pb-3 ">{description}</p>
+    <p className="text-sm lg:text-base text-gray-600 pb-3 ">{descriptionFormat(description)}</p>
     <p className="text-xs lg:text-sm">
      <span className="text-gray-600 ">Stock:</span> {stock === 0 ? 'Out of stock' : stock}
     </p>

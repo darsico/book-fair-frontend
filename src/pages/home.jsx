@@ -6,16 +6,20 @@ import Search from "../components/Search/Search";
 import SpinnerSection from "../components/Loader/SpinnerSection";
 
 const Home = () => {
-  const { data, isLoading, error } = useQuery("book", getAllBooks);
+  const { data, isLoading, isError } = useQuery("book", getAllBooks);
   const [params, setParams] = useSearchParams()
 
   if (isLoading) return <SpinnerSection />
-  if (error || !data) return <h1>Something went wrong</h1>
+  if (isError) return <h1>Something went wrong</h1>
+  if (!data) return <h1>There is no data yet</h1>
 
   const searchTerms = params.get('title') || '';
   const { books } = data || {};
 
   const filteredBooks = books?.filter((book) => book.title.toLowerCase().includes(searchTerms.toLowerCase()));
+
+  const sortedDates = filteredBooks?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  console.log(sortedDates)
 
   return (
     <section className="page-container">
