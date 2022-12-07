@@ -71,10 +71,6 @@ const UserLogin = ({ type }) => {
      <FormField label="Password" name={'password'} type={'password'} register={register} errors={errors} rules={{
       required: true,
       message: 'Password is required',
-      minLength: {
-       value: 6,
-       message: 'Password must have at least 6 characters'
-      }
      }} />
      <PostButton isLoading={isLoading} buttonTitle="Login" />
      <Error />
