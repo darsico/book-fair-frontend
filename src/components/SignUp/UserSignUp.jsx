@@ -5,6 +5,7 @@ import FormField from "../Form/FormField.jsx";
 import { userRegister } from "../../api/authApi";
 import PostButton from "../Buttons/PostButton.jsx";
 import Error from "../Error/Error.jsx";
+import { useState } from "react";
 
 const UserSignUp = ({ type }) => {
  const [showPassword, setShowPassword] = useState(false);
