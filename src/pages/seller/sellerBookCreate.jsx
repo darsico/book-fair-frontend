@@ -1,7 +1,6 @@
 import { useProductStore } from '../../store';
 import { useNavigate, useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
-import Book from '../../components/Book/Book';
 import { useMutation } from 'react-query';
 import { createBook } from '../../api/sellerApi';
 import PostButton from '../../components/Buttons/PostButton';

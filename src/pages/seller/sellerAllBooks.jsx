@@ -13,7 +13,7 @@ const SellerAllBooks = () => {
 
  const tableHeader = ['Image', 'Title', 'Author', 'Description', 'Price', 'Stock'];
 
- if (isLoading || !sellerBooks) return <SpinnerSection />
+ if (isLoading) return <SpinnerSection />
  if (isError) return <h1>{error.message}</h1>
 
  return (
