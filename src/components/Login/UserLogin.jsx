@@ -62,7 +62,6 @@ const UserLogin = ({ type }) => {
     <form action="" className="form-ctn" onSubmit={handleSubmit(onSubmit)}>
      <FormField label="Email" name={'email'} type={'email'} register={register} errors={errors} rules={{ required: true }} />
      <FormField label="Password" name={'password'} type={'password'} register={register} errors={errors} rules={{ required: true }} />
-     <FormField label="Confirm Password" name={'confirmPassword'} type={'password'} register={register} errors={errors} rules={{ required: true }} />
      <PostButton isLoading={isLoading} buttonTitle="Login" />
      <Error />
      <div className="py-4 gap-4 flex flex-col">
