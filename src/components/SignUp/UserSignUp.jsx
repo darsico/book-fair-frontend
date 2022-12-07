@@ -7,6 +7,7 @@ import PostButton from "../Buttons/PostButton.jsx";
 import Error from "../Error/Error.jsx";
 
 const UserSignUp = ({ type }) => {
+ const [showPassword, setShowPassword] = useState(false);
  const { register, handleSubmit, formState: { errors } } = useForm();
  const navigate = useNavigate()
 
@@ -89,11 +90,7 @@ const UserSignUp = ({ type }) => {
        errors={errors}
        rules={{
         required: true,
-        message: 'Password is required',
-        pattern: {
-         value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-         message: 'Password must contain at least 8 characters, one uppercase, one lowercase and one number'
-        }
+        message: 'Password is required'
        }}
       />
       <FormField
@@ -105,7 +102,7 @@ const UserSignUp = ({ type }) => {
        rules={{
         required: true,
         message: 'Confirm password is required',
-        validate: (value) => value === password.current || 'The passwords do not match'
+        validate: (value) => value === password || 'The passwords do not match'
        }}
       />
       {isSeller && <div className="pt-5 flex flex-col gap-4">
