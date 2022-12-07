@@ -63,11 +63,7 @@ const UserSignUp = ({ type }) => {
        register={register}
        errors={errors}
        rules={{
-        required: true, minLength: 3,
-        pattern: {
-         value: /^[A-Za-z]+$/i,
-         message: 'Name should contain only letters'
-        }
+        required: true, minLength: 3, message: 'Name is required and must be at least 3 characters'
        }}
       />
       <FormField
@@ -78,6 +74,7 @@ const UserSignUp = ({ type }) => {
        errors={errors}
        rules={{
         required: true,
+        message: 'Email is required',
         pattern: {
          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
          message: 'Invalid email address'
@@ -92,6 +89,7 @@ const UserSignUp = ({ type }) => {
        errors={errors}
        rules={{
         required: true,
+        message: 'Password is required',
         pattern: {
          value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
          message: 'Password must contain at least 8 characters, one uppercase, one lowercase and one number'
@@ -106,8 +104,8 @@ const UserSignUp = ({ type }) => {
        errors={errors}
        rules={{
         required: true,
+        message: 'Confirm password is required',
         validate: (value) => value === password.current || 'The passwords do not match'
-
        }}
       />
       {isSeller && <div className="pt-5 flex flex-col gap-4">

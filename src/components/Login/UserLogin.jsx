@@ -62,6 +62,7 @@ const UserLogin = ({ type }) => {
     <form action="" className="form-ctn" onSubmit={handleSubmit(onSubmit)}>
      <FormField label="Email" name={'email'} type={'email'} register={register} errors={errors} rules={{
       required: true,
+      message: 'Email is required',
       pattern: {
        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
        message: 'invalid email address'
@@ -69,6 +70,7 @@ const UserLogin = ({ type }) => {
      }} />
      <FormField label="Password" name={'password'} type={'password'} register={register} errors={errors} rules={{
       required: true,
+      message: 'Password is required',
       minLength: {
        value: 6,
        message: 'Password must have at least 6 characters'
