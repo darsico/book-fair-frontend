@@ -9,7 +9,7 @@ const Home = () => {
   const { data, isLoading, error } = useQuery("book", getAllBooks);
   const [params, setParams] = useSearchParams()
 
-  if (isLoading || !data) return <SpinnerSection />
+  if (isLoading) return <SpinnerSection />
   if (error || !data) return <h1>Something went wrong</h1>
 
   const searchTerms = params.get('title') || '';
