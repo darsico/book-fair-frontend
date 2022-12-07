@@ -32,10 +32,10 @@ const NavBar = ({ setIsOpen, mobile = false }) => {
  return (
   <>
    <Link to="/" {...additionalProps}>
-    <p className=" px-4 py-2">Shop All</p>
+    <p className=" px-4 py-2">Shop All Books</p>
    </Link>
    <Link to={'/sellers'} {...additionalProps}>
-    <p className=" px-4 py-2">Discover Stores</p>
+    <p className=" px-4 py-2">Discover All Stores</p>
    </Link>
    {links.map((item, index) => (
     <Menu as="div" className="relative inline-block text-left" key={index}>
